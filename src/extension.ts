@@ -5,72 +5,78 @@ const FILE_WATCHER_PATTERN = '**/.gitignore';
 const HIDE_COMMAND = 'hide-git-ignored.hide';
 const SHOW_COMMAND = 'hide-git-ignored.show';
 const EXCLUDE_GIT_IGNORE = 'explorer.excludeGitIgnore';
-const fileWatcher = vscode.workspace.createFileSystemWatcher(FILE_WATCHER_PATTERN, false, true, false);
+const IS_EXCLUDED_CONTEXT = 'hide-git-ignored:isGitIgnoredExcluded';
+const IS_FOUND_CONTEXT = 'hide-git-ignored:isGitIgnoredFound';
 
 let statusBarItem: vscode.StatusBarItem;
 
+function isGitIgnoredExcluded(): boolean {
+	return vscode.workspace.getConfiguration().get<boolean>(EXCLUDE_GIT_IGNORE, false);
+}
+
 async function hasGitIgnoreFile(): Promise<boolean> {
-	const gitIgnoreFound = (await vscode.workspace.findFiles(FIND_FILE_PATTERN)).length > 0;
-	return gitIgnoreFound;
+	const gitIgnoreFiles = await vscode.workspace.findFiles(FIND_FILE_PATTERN);
+	return gitIgnoreFiles.length > 0;
 }
 
-async function hideGitIgnored() {
-	const target = vscode.ConfigurationTarget.Workspace;
-	const configuration = vscode.workspace.getConfiguration();
-	const currentSettings = configuration.get(EXCLUDE_GIT_IGNORE);
-	configuration.update(EXCLUDE_GIT_IGNORE, !currentSettings, target);
-	vscode.commands.executeCommand('setContext', 'hide-git-ignored:isGitIgnoredExcluded', !currentSettings);
-
-
-	await hasGitIgnoreFile() ? updateStatusBar(!currentSettings) : false;
-}
-
-function updateStatusBar(excluded: boolean | undefined): void {
-	if (!excluded || undefined) {
-		statusBarItem.text = '$(eye) .gitIgnore';
-		statusBarItem.tooltip = '.gitIgnored files are visible';
-	} else {
+function renderStatusBar(excluded: boolean): void {
+	if (excluded) {
 		statusBarItem.text = '$(eye-closed) .gitIgnore';
 		statusBarItem.tooltip = '.gitIgnored files are hidden';
+		statusBarItem.command = SHOW_COMMAND;
+	} else {
+		statusBarItem.text = '$(eye) .gitIgnore';
+		statusBarItem.tooltip = '.gitIgnored files are visible';
+		statusBarItem.command = HIDE_COMMAND;
 	}
 }
 
-const enableCommand = async () => {
-	await hasGitIgnoreFile() ? statusBarItem.show() : statusBarItem.hide();
-	vscode.commands.executeCommand('setContext', 'hide-git-ignored:isGitIgnoredFound', await hasGitIgnoreFile());
-};
-
-function isGitIgnoredExcluded(): boolean | undefined {
-	return vscode.workspace.getConfiguration().get(EXCLUDE_GIT_IGNORE);
+async function renderFromSetting(): Promise<void> {
+	const excluded = isGitIgnoredExcluded();
+	await vscode.commands.executeCommand('setContext', IS_EXCLUDED_CONTEXT, excluded);
+	renderStatusBar(excluded);
 }
 
-const hideCommand = vscode.commands.registerCommand(HIDE_COMMAND, async () => {
-	await hideGitIgnored();
-});
+async function renderGitIgnorePresence(): Promise<void> {
+	const found = await hasGitIgnoreFile();
+	await vscode.commands.executeCommand('setContext', IS_FOUND_CONTEXT, found);
+	if (found) {
+		statusBarItem.show();
+	} else {
+		statusBarItem.hide();
+	}
+}
 
-const showCommand = vscode.commands.registerCommand(SHOW_COMMAND, async () => {
-	await hideGitIgnored();
-});
+async function toggleGitIgnored(): Promise<void> {
+	const excluded = isGitIgnoredExcluded();
+	await vscode.workspace
+		.getConfiguration()
+		.update(EXCLUDE_GIT_IGNORE, !excluded, vscode.ConfigurationTarget.Workspace);
+	await renderFromSetting();
+}
 
-
-export async function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext): Promise<void> {
 	statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1);
-
-	fileWatcher.onDidCreate(async () => enableCommand());
-	fileWatcher.onDidDelete(async () => enableCommand());
-	enableCommand();
-
-	(statusBarItem.command = HIDE_COMMAND),
-		async () => {
-			hideGitIgnored();
-		};
-
-	updateStatusBar(isGitIgnoredExcluded());
-
-
 	context.subscriptions.push(statusBarItem);
-	context.subscriptions.push(hideCommand);
-	context.subscriptions.push(showCommand);
+
+	context.subscriptions.push(vscode.commands.registerCommand(HIDE_COMMAND, toggleGitIgnored));
+	context.subscriptions.push(vscode.commands.registerCommand(SHOW_COMMAND, toggleGitIgnored));
+
+	const fileWatcher = vscode.workspace.createFileSystemWatcher(FILE_WATCHER_PATTERN, false, true, false);
+	context.subscriptions.push(fileWatcher);
+	context.subscriptions.push(fileWatcher.onDidCreate(() => renderGitIgnorePresence()));
+	context.subscriptions.push(fileWatcher.onDidDelete(() => renderGitIgnorePresence()));
+
+	context.subscriptions.push(
+		vscode.workspace.onDidChangeConfiguration(async (event) => {
+			if (event.affectsConfiguration(EXCLUDE_GIT_IGNORE)) {
+				await renderFromSetting();
+			}
+		})
+	);
+
+	await renderFromSetting();
+	await renderGitIgnorePresence();
 }
 
 export function deactivate() {

@@ -44,12 +44,12 @@
 			{
 				"command": "hide-git-ignored.hide",
 				"title": "Hide Git Ignored Files",
-				"when": "!hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+				"enablement": "!hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
 			},
 			{
 				"command": "hide-git-ignored.show",
 				"title": "Show Git Ignored Files",
-				"when": "hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+				"enablement": "hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
 			}
 		],
 		"menus": {
@@ -65,14 +65,7 @@
 					"when": "!hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
 				}
 			]
-		},
-		"keybindings": [
-			{
-				"command": "hide-git-ignored.show",
-				"key": "shift+ctrl+i",
-				"mac": "shift+cmd+i"
-			}
-		]
+		}
 	},
 	"scripts": {
 		"deploy": "vsce publish",

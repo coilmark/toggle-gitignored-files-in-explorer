@@ -15,11 +15,16 @@ This VSCode extension adds additional functionality to the .gitignore setting ad
 ## Features
 - Context menu to show / hide 
 - Status bar to indicate current setting
-- Shortcut key to toggle setting
 
 ## How to use
 
-| Action                            | Windows / Linux | macOS             | Command Palette        |
-| --------------------------------- | --------------- | ----------------- | ---------------------- |
-| Show files excluded in .gitignore | `ctrl-shift-i`  | `command-shift-i` | Show Git Ignored files |
-| Hide files excluded in .gitignore | `ctrl-shift-i`  | `command-shift-i` | Hide Git Ignored files |
+| Action                            | Command Palette         |
+| --------------------------------- | ----------------------- |
+| Show files excluded in .gitignore | Show Git Ignored Files  |
+| Hide files excluded in .gitignore | Hide Git Ignored Files  |
+
+You can also toggle via the `.gitIgnore` status bar item (shown when the workspace contains a `.gitignore` file) or the Explorer context menu.
+
+### Key bindings
+
+This extension ships no default keybinding (the one in the original collided with **Toggle Developer Tools** on Windows/Linux). To bind your own keys, open **Preferences: Open Keyboard Shortcuts** (`Ctrl+K Ctrl+S` / `Cmd+K Cmd+S`), search for `hide-git-ignored.hide` and `hide-git-ignored.show`, and assign a key to each command.
