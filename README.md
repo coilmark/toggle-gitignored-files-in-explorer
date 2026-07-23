@@ -28,3 +28,7 @@ You can also toggle via the `.gitIgnore` status bar item (shown when the workspa
 ### Key bindings
 
 This extension ships no default keybinding (the one in the original collided with **Toggle Developer Tools** on Windows/Linux). To bind your own keys, open **Preferences: Open Keyboard Shortcuts** (`Ctrl+K Ctrl+S` / `Cmd+K Cmd+S`), search for `hide-git-ignored.hide` and `hide-git-ignored.show`, and assign a key to each command.
+
+## Attribution
+
+Icon derived from [Codicons](https://github.com/microsoft/vscode-codicons) by Microsoft, licensed CC BY 4.0.
