@@ -1,9 +1,9 @@
 {
-	"name": "hide-git-ignored",
-	"displayName": "Hide Git Ignored",
+	"name": "hide-git-ignored-revived",
+	"displayName": "Hide Git Ignored (Revived)",
 	"description": "Show/Hide git ignored files within the Explorer view",
 	"icon": "images/hideGitIgnored128.png",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"license": "MIT",
 	"keywords": [
 		"git",
@@ -19,16 +19,16 @@
 		"color": "#ffffff",
 		"theme": "light"
 	},
-	"publisher": "chrisbibby",
+	"publisher": "coilmark",
 	"author": {
-		"name": "Chris Bibby"
+		"name": "coilmark"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ChrisBibby/vscode_hide-git-ignored.git"
+		"url": "https://github.com/coilmark/vscode_hide-git-ignored.git"
 	},
-	"homepage": "https://github.com/ChrisBibby/vscode_hide-git-ignored",
-	"bugs": "https://github.com/ChrisBibby/vscode_hide-git-ignored/issues",
+	"homepage": "https://github.com/coilmark/vscode_hide-git-ignored",
+	"bugs": "https://github.com/coilmark/vscode_hide-git-ignored/issues",
 	"engines": {
 		"vscode": "^1.68.0"
 	},

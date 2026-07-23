@@ -5,6 +5,10 @@
 
 # Hide Git Ignored README
 
+## About this fork
+
+This is a maintained fork of [Hide Git Ignored](https://github.com/ChrisBibby/vscode_hide-git-ignored) by Chris Bibby, whose original project was archived in 2022 and delisted from the VS Code Marketplace. Full credit for the original extension goes to Chris Bibby; this fork revives it under the `coilmark` publisher with bug fixes and updated tooling.
+
 This VSCode extension adds additional functionality to the .gitignore setting added to VSCode [v1.68](https://code.visualstudio.com/updates/v1_68#_hide-files-in-explorer-based-on-gitignore) (May 2022) which provided the option of hiding of files that are excluded in a `.gitignore` file from the explorer view.
 
 
