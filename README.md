@@ -1,8 +1,3 @@
-
-[![](https://vsmarketplacebadge.apphb.com/version/chrisbibby.hide-git-ignored.svg)](https://marketplace.visualstudio.com/items?itemName=chrisbibby.hide-git-ignored)
-[![](https://vsmarketplacebadge.apphb.com/installs/chrisbibby.hide-git-ignored.svg)](https://marketplace.visualstudio.com/items?itemName=chrisbibby.hide-git-ignored)
-[![](https://vsmarketplacebadge.apphb.com/rating/chrisbibby.hide-git-ignored.svg)](https://marketplace.visualstudio.com/items?itemName=chrisbibby.hide-git-ignored&ssr=false#review-details)
-
 # Hide Git Ignored README
 
 ## About this fork
