@@ -73,6 +73,7 @@
 		"fix:prettier": "prettier \"**/*.ts\" --write",
 		"package": "npx @vscode/vsce package",
 		"vscode:prepublish": "npm run lint && webpack --mode production",
+		"watch": "webpack --watch --mode development",
 		"webpack": "webpack --mode production",
 		"webpack-dev": "webpack --mode development"
 	},
