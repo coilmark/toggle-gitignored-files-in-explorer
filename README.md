@@ -1,5 +1,11 @@
 # Hide Git Ignored README
 
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/coilmark.hide-git-ignored-revived)](https://marketplace.visualstudio.com/items?itemName=coilmark.hide-git-ignored-revived)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/coilmark.hide-git-ignored-revived)](https://marketplace.visualstudio.com/items?itemName=coilmark.hide-git-ignored-revived)
+[![CI](https://github.com/coilmark/vscode_hide-git-ignored/actions/workflows/ci.yml/badge.svg)](https://github.com/coilmark/vscode_hide-git-ignored/actions/workflows/ci.yml)
+
+Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=coilmark.hide-git-ignored-revived) or [Open VSX](https://open-vsx.org/extension/coilmark/hide-git-ignored-revived).
+
 ## About this fork
 
 This is a maintained fork of [Hide Git Ignored](https://github.com/ChrisBibby/vscode_hide-git-ignored) by Chris Bibby, whose original project was archived in 2022 and delisted from the VS Code Marketplace. Full credit for the original extension goes to Chris Bibby; this fork revives it under the `coilmark` publisher with bug fixes and updated tooling.
