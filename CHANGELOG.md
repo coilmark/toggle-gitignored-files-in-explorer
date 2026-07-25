@@ -1,6 +1,12 @@
 # Change Log
 
-All notable changes to the "Hide Git Ignored" VSCode extension will be documented in this file:
+All notable changes to the "Toggle Gitignored Files in Explorer" VSCode extension will be documented in this file:
+
+#### v0.2.0 (July 25 2026)
+
+- Renamed from "Hide Git Ignored (Revived)" to "Toggle Gitignored Files in Explorer"
+- Extension identifier changed to `coilmark.toggle-gitignored-files-in-explorer` (new Marketplace listing)
+- Command IDs changed to `gitignoredFiles.show` / `gitignoredFiles.hide`; rebind any custom keyboard shortcuts
 
 #### v0.1.0 (July 23 2026)
 

@@ -1,14 +1,15 @@
 {
-	"name": "hide-git-ignored-revived",
-	"displayName": "Hide Git Ignored (Revived)",
-	"description": "Show/Hide git ignored files within the Explorer view",
-	"icon": "images/hideGitIgnored128.png",
-	"version": "0.1.0",
+	"name": "toggle-gitignored-files-in-explorer",
+	"displayName": "Toggle Gitignored Files in Explorer",
+	"description": "Status bar toggle for VS Code's built-in gitignore Explorer filter",
+	"icon": "images/icon128.png",
+	"version": "0.2.0",
 	"license": "MIT",
 	"keywords": [
 		"git",
-		"ignore",
+		"gitignore",
 		".gitignore",
+		"toggle",
 		"show",
 		"hide",
 		"file",
@@ -25,10 +26,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/coilmark/vscode_hide-git-ignored.git"
+		"url": "https://github.com/coilmark/toggle-gitignored-files-in-explorer.git"
 	},
-	"homepage": "https://github.com/coilmark/vscode_hide-git-ignored",
-	"bugs": "https://github.com/coilmark/vscode_hide-git-ignored/issues",
+	"homepage": "https://github.com/coilmark/toggle-gitignored-files-in-explorer",
+	"bugs": "https://github.com/coilmark/toggle-gitignored-files-in-explorer/issues",
 	"engines": {
 		"vscode": "^1.68.0"
 	},
@@ -42,27 +43,27 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "hide-git-ignored.hide",
-				"title": "Hide Git Ignored Files",
-				"enablement": "!hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+				"command": "gitignoredFiles.hide",
+				"title": "Hide Gitignored Files",
+				"enablement": "!gitignoredFiles:isExcluded && gitignoredFiles:isGitignoreFound"
 			},
 			{
-				"command": "hide-git-ignored.show",
-				"title": "Show Git Ignored Files",
-				"enablement": "hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+				"command": "gitignoredFiles.show",
+				"title": "Show Gitignored Files",
+				"enablement": "gitignoredFiles:isExcluded && gitignoredFiles:isGitignoreFound"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "hide-git-ignored.show",
+					"command": "gitignoredFiles.show",
 					"group": "1_copypath@998",
-					"when": "hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+					"when": "gitignoredFiles:isExcluded && gitignoredFiles:isGitignoreFound"
 				},
 				{
-					"command": "hide-git-ignored.hide",
+					"command": "gitignoredFiles.hide",
 					"group": "1_copypath@997",
-					"when": "!hide-git-ignored:isGitIgnoredExcluded && hide-git-ignored:isGitIgnoredFound"
+					"when": "!gitignoredFiles:isExcluded && gitignoredFiles:isGitignoreFound"
 				}
 			]
 		}

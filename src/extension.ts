@@ -2,11 +2,11 @@ import * as vscode from 'vscode';
 
 const FIND_FILE_PATTERN = '**/.gitignore';
 const FILE_WATCHER_PATTERN = '**/.gitignore';
-const HIDE_COMMAND = 'hide-git-ignored.hide';
-const SHOW_COMMAND = 'hide-git-ignored.show';
+const HIDE_COMMAND = 'gitignoredFiles.hide';
+const SHOW_COMMAND = 'gitignoredFiles.show';
 const EXCLUDE_GIT_IGNORE = 'explorer.excludeGitIgnore';
-const IS_EXCLUDED_CONTEXT = 'hide-git-ignored:isGitIgnoredExcluded';
-const IS_FOUND_CONTEXT = 'hide-git-ignored:isGitIgnoredFound';
+const IS_EXCLUDED_CONTEXT = 'gitignoredFiles:isExcluded';
+const IS_FOUND_CONTEXT = 'gitignoredFiles:isGitignoreFound';
 
 let statusBarItem: vscode.StatusBarItem;
 
