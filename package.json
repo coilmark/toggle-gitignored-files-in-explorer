@@ -81,7 +81,7 @@
 	"devDependencies": {
 		"@types/node": "24.x",
 		"@types/vscode": "^1.68.0",
-		"eslint": "^9.39.5",
+		"eslint": "^10.11.0",
 		"prettier": "3.9.9",
 		"ts-loader": "^9.6.2",
 		"typescript": "^5.9.3",
