@@ -82,11 +82,11 @@
 		"@types/node": "24.x",
 		"@types/vscode": "^1.68.0",
 		"eslint": "^9.39.5",
-		"prettier": "3.9.6",
+		"prettier": "3.9.9",
 		"ts-loader": "^9.6.2",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.65.0",
-		"webpack": "^5.108.4",
-		"webpack-cli": "^7.2.1"
+		"typescript-eslint": "^8.70.1",
+		"webpack": "^5.111.1",
+		"webpack-cli": "^7.2.3"
 	}
 }
