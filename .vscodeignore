@@ -24,7 +24,6 @@ src/**
 AGENTS.md
 CLAUDE.md
 CONTEXT.md
-TODO.md
 eslint.config.mjs
 skills-lock.json
 webpack.config.js
