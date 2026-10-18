@@ -2,6 +2,10 @@
 
 All notable changes to the "Toggle Gitignored Files in Explorer" VSCode extension will be documented in this file:
 
+#### v0.2.1 (October 18 2026)
+
+- Rewritten README; no functional changes
+
 #### v0.2.0 (July 25 2026)
 
 - Renamed from "Hide Git Ignored (Revived)" to "Toggle Gitignored Files in Explorer"
