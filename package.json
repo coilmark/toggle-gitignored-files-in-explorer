@@ -3,7 +3,7 @@
 	"displayName": "Toggle Gitignored Files in Explorer",
 	"description": "Status bar toggle for VS Code's built-in gitignore Explorer filter",
 	"icon": "images/icon128.png",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"license": "MIT",
 	"keywords": [
 		"git",
