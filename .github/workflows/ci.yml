@@ -1,8 +1,14 @@
 name: CI
 
 on:
+  # PR branches are covered by pull_request; also running on their pushes would duplicate every run.
   push:
+    branches: [main]
   pull_request:
+
+# Read-only token, independent of the repo's default workflow permissions.
+permissions:
+  contents: read
 
 jobs:
   build:
