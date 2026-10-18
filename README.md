@@ -1,7 +1,7 @@
 # Toggle Gitignored Files in Explorer
 
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/coilmark.toggle-gitignored-files-in-explorer)](https://marketplace.visualstudio.com/items?itemName=coilmark.toggle-gitignored-files-in-explorer)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/coilmark.toggle-gitignored-files-in-explorer)](https://marketplace.visualstudio.com/items?itemName=coilmark.toggle-gitignored-files-in-explorer)
+[![Marketplace Version](https://vsmarketplacebadges.dev/version/coilmark.toggle-gitignored-files-in-explorer.svg)](https://marketplace.visualstudio.com/items?itemName=coilmark.toggle-gitignored-files-in-explorer)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/coilmark.toggle-gitignored-files-in-explorer.svg)](https://marketplace.visualstudio.com/items?itemName=coilmark.toggle-gitignored-files-in-explorer)
 [![CI](https://github.com/coilmark/toggle-gitignored-files-in-explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/coilmark/toggle-gitignored-files-in-explorer/actions/workflows/ci.yml)
 
 Show or hide gitignored files in the VS Code Explorer with one click.
