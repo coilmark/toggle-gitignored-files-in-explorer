@@ -11,6 +11,14 @@ updates:
       # vsce also refuses to package if the types are newer than the engine.
       # To move it, raise engines.vscode and this pin together, by hand.
       - dependency-name: "@types/vscode"
+      # @types/node tracks the Node major in .nvmrc. Move both together, by hand.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # typescript-eslint caps its typescript peer range (currently <6.1.0), so
+      # a TypeScript major breaks npm ci. Lift this once typescript-eslint
+      # supports the new major.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
