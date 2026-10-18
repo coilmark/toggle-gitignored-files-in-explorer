@@ -79,7 +79,7 @@
 		"webpack-dev": "webpack --mode development"
 	},
 	"devDependencies": {
-		"@types/node": "24.x",
+		"@types/node": "26.x",
 		"@types/vscode": "~1.68.0",
 		"eslint": "^10.11.0",
 		"prettier": "3.9.9",
