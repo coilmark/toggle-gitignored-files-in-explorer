@@ -4,6 +4,13 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # @types/vscode is pinned to ~1.68.0 in package.json on purpose.
+      # It must match engines.vscode (the oldest VS Code we support), so the
+      # compiler rejects any API that older VS Code versions don't have.
+      # vsce also refuses to package if the types are newer than the engine.
+      # To move it, raise engines.vscode and this pin together, by hand.
+      - dependency-name: "@types/vscode"
   - package-ecosystem: github-actions
     directory: /
     schedule:
